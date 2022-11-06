@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 function mediaFactory(data) {
   const { photographerId, image, likes, video, title } = data;
 
@@ -17,7 +18,6 @@ function mediaFactory(data) {
     let alreadyClicked = false;
 
     if (video) {
-      // créer un élément source (nav)
       visual = document.createElement("video");
       media = `assets/photographers/${photographerId}/${video}`;
     } else {
@@ -50,34 +50,12 @@ function mediaFactory(data) {
       }
     });
 
-    likeBox.appendChild(numberOfLikes);
-    likeBox.appendChild(heart);
+    likeBox.append(numberOfLikes, heart);
     likeBox.classList.add("likeBox");
 
-    textBox.appendChild(h2);
-    textBox.appendChild(likeBox);
+    textBox.append(h2, likeBox);
     textBox.classList.add("textBox");
-    article.appendChild(visualBox);
-    article.appendChild(textBox);
-
-    // open carousel when clicking on media
-    // visualBox.addEventListener("click", function() {
-    //   const carousel = document.getElementById("carouselWrapper");
-    //   const mediaSection = document.getElementById("main");
-    //   const headerSection = document.getElementById("headerSection");
-    //   const mediaCarousel = visual.cloneNode();
-    //   mediaCarousel.classList.add("mediaCarousel");
-    //   const mainPicture = document.getElementsByClassName("carouselMainImage");
-    //   carousel.style.display = "block";
-    //   mediaSection.style.display = "none";
-    //   headerSection.style.display = "none";
-    //   mainPicture[0].appendChild(mediaCarousel);
-
-    //   // const carouselImg = document.createElement("div");
-    //   // carouselImg.appendChild(mediaCarousel);
-    //   // carouselMainSection.appendChild(carouselImg);
-    //   // console.log(carouselImg);
-    // })
+    article.append(visualBox, textBox);
     return article;
   }
 

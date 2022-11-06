@@ -19,6 +19,24 @@
   text-align: left;
 }
 
+.priceAndTotalLikesSidebar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #db8876;
+  position: sticky;
+  width: 180px;
+  text-align: center; 
+  bottom: 0px;
+  left: 90vw;
+  border-radius: 5px 5px 0px 0px;
+  padding: 5px;
+}
+
+.blackHeart {
+  width: 17.5px;
+}
+
+
 .photographerHeaderPortrait {
   text-align: end;
 }
@@ -32,7 +50,8 @@
 
 /* bouton de contact */
 
-.contactButton, .dropdownList {
+.contactButton,
+.dropdownList {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -63,7 +82,7 @@
   font-weight: bold;
 }
 
-/* modal */ 
+/* modal */
 .modal {
   border-radius: 5px;
   background-color: #db8876;
@@ -124,12 +143,12 @@ form input {
 
 /* style des photos de chaque photographe */
 
-.media_section {
+.mediaSection {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.media_section article {
+.mediaSection article {
   margin: auto;
   width: 350px;
 }
@@ -157,12 +176,13 @@ form input {
 
 .heart {
   width: 20px;
-  margin-left: 10px; 
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .mediaTitle {
   font-size: 22px;
-} 
+}
 
 .numberLikesBlack {
   color: #312e2e;
@@ -177,72 +197,17 @@ form input {
 
 /* carousel setup */
 
-/* #carouselWrapper {
-  display: none;
-  height: 100%;
-  margin: 20px;
-}
-
-.carousel {
-  width: 90%;
-}
-
-/* .sr-only {
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0
-} */
-
-.mediaCarousel {
-  height: 90vh;
-  border-radius: 1%;
-  /* align-items: center;
-  align-self: center;
-  align-content: center; */
-}
-
-.carousel-item {
-  list-style-type: none;
-}
-
-/* .item-1 {
-  background-color: blue;
+#lightboxSection {
   display: none;
 }
 
-.item-2 {
-  background-color: green;
-  display: none;
-} */
-
-.img {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  color: #901c1c;
-  font-size: 30px;
+.lightbox {
+  height: 100vh;
+  width: 80vw;
 }
 
-.prev-image {
-  left: 40px;
+.lightboxMedia {
+  height: 100vh;
+  width: 80%;
+  object-fit:cover;
 }
-
-.next-image {
-  right: 40px;
-}
-
-.close-image {
-  font-size: 40px;
-  right: 40px;
-  top: 5%;
-} */
