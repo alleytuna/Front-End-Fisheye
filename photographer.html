@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -16,18 +16,24 @@
   </head>
   <body>
     <header id="headerSection">
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="/" tabindex="0">
+        <img
+          src="assets/images/logo.png"
+          alt="logo of Fisheye company"
+          class="logo"
+        />
+      </a>
     </header>
     <main id="main">
-      <div class="photographHeader">
+      <header class="photographHeader">
         <div class="photographerHeaderInfo"></div>
         <button class="contactButton" onclick="displayModal()">
           Contactez-moi
         </button>
         <div class="photographerHeaderPortrait"></div>
-      </div>
+      </header>
       <div class="dropdownSection">
-        <p>Trier par</p>
+        <label id="dropdownLabel" for="dropdownList">Trier par</label>
         <select id="dropdownList" class="dropdownList">
           <option
             id="popularitySort"
@@ -44,101 +50,57 @@
           </option>
         </select>
       </div>
-      <div class="media_section"></div>
+      <main class="mediaSection"></main>
+      <article class="lightboxSection" tabindex="0">
+        <img
+          src="assets/icons/leftArrow.svg"
+          alt="arrow to go to previous picture"
+          class="prevButton"
+        />
+        <img
+          src="assets/icons/rightArrow.svg"
+          alt="arrow to go to next picture"
+          class="nextButton"
+        />
+        <img
+          src="assets/icons/closeLightbox.svg"
+          alt="icon to close the carousel"
+          class="closeLightbox"
+        />
+        <article id="lightboxVisualBox"></article>
+      </article>
+      <div class="priceAndTotalLikesSidebar"></div>
     </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img
+            src="assets/icons/close.svg"
+            alt="cross to close the contact modal"
+            onclick="closeModal()"
+          />
         </header>
         <form>
           <div>
-            <label>Prénom</label>
-            <input />
-            <label>Nom</label>
-            <input />
-            <label>Email</label>
-            <input />
-            <label>Message</label>
-            <input />
+            <label for="surname">Prénom</label>
+            <input id="surname" />
+            <label for="lastname">Nom</label>
+            <input id="lastname" />
+            <label for="email">Email</label>
+            <input id="email" />
+            <label for="message">Message</label>
+            <input id="message" />
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
       </div>
     </div>
-
-    <!-- carousel
-    <div id="carouselWrapper" aria-hidden="false">
-      <ul class="carousel" aria-label="Our selection of Recipes">
-        <li class="carousel-item item-0" aria-hidden="false">
-          <div role="button" class="controls controls-left">
-            <span class="img prev-image">
-              <i aria-hidden="true" class="fa fa-chevron-left"></i>
-            </span>
-            <p class="sr-only">Previous</p>
-          </div>
-          <div class="carouselMainImage"></div>
-          <div role="button" class="controls controls-right">
-            <span class="img next-image">
-              <i aria-hidden="true" class="fa fa-chevron-right"></i>
-            </span>
-            <p class="sr-only">Next</p>
-          </div>
-        </li>
-        <li class="carousel-item item-1" aria-hidden="true">
-          <div role="button" class="controls controls-left">
-            <span class="img prev-image">
-              <i aria-hidden="true" class="fa fa-chevron-left"></i>
-            </span>
-            <p class="sr-only">Previous</p>
-          </div>
-          <div class="carouselMainImage"></div>
-          <div role="button" class="controls controls-right">
-            <span class="img next-image">
-              <i aria-hidden="true" class="fa fa-chevron-right"></i>
-            </span>
-            <p class="sr-only">Next</p>
-          </div>
-        </li>
-        <li class="carousel-item item-2" aria-hidden="true">
-          <div role="button" class="controls controls-left">
-            <span class="img prev-image">
-              <i aria-hidden="true" class="fa fa-chevron-left"></i>
-            </span>
-            <p class="sr-only">Previous</p>
-          </div>
-          <div class="carouselMainImage"></div>
-          <div role="button" class="controls controls-right">
-            <span class="img next-image">
-              <i aria-hidden="true" class="fa fa-chevron-right"></i>
-            </span>
-            <p class="sr-only">Next</p>
-          </div>
-        </li>
-      </ul>
-      <div role="button" class="controls close-button">
-        <span class="img close-image">
-          <i aria-hidden="true" class="fa fa-times"></i>
-        </span>
-        <p class="sr-only">Close</p>
-      </div>
-    </div> -->
-    <!-- fin carousel -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/factories/photographer.js"></script>
-    <script src="scripts/factories/media.js"></script>
-    <script src="/scripts/utils/carousel.js"></script>
+    <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/utils/lightbox.js"></script>
+    <script src="./scripts/utils/photographerHeader.js"></script>
+    <script src="./scripts/factories/photographer.js"></script>
+    <script src="./scripts/factories/media.js"></script>
+    <script src="./scripts/pages/photographer.js"></script>
   </body>
 </html>

@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
+
 function mediaFactory(data) {
   const { photographerId, image, likes, video, title } = data;
 
   function getMediaCardDOM() {
     const article = document.createElement("article");
-    const visualBox = document.createElement("span");
+    const lightboxVisualBox = document.createElement("span");
     const textBox = document.createElement("span");
     const h2 = document.createElement("h2");
     const likeBox = document.createElement("span");
@@ -17,7 +18,6 @@ function mediaFactory(data) {
     let alreadyClicked = false;
 
     if (video) {
-      // créer un élément source (nav)
       visual = document.createElement("video");
       media = `assets/photographers/${photographerId}/${video}`;
     } else {
@@ -27,7 +27,7 @@ function mediaFactory(data) {
     visual.setAttribute("src", media);
     visual.setAttribute("alt", title);
     visual.classList.add("media");
-    visualBox.appendChild(visual);
+    lightboxVisualBox.appendChild(visual);
 
     h2.textContent = title;
     h2.classList.add("mediaTitle");
@@ -37,47 +37,27 @@ function mediaFactory(data) {
     numberOfLikes.textContent = likeTotal;
     numberOfLikes.classList.add("numberLikesBlack");
 
-    // like and dislike the media only once
     heart.addEventListener("click", function (e) {
+      let totalLikes = document.querySelector(".totalLikes");
       if (alreadyClicked == true) {
         numberOfLikes.innerHTML = --likeTotal;
+        --totalLikes.textContent;
         numberOfLikes.classList.remove("numberLikesRed");
         alreadyClicked = false;
       } else {
         numberOfLikes.innerHTML = ++likeTotal;
+        ++totalLikes.textContent;
         numberOfLikes.classList.add("numberLikesRed");
         alreadyClicked = true;
       }
     });
 
-    likeBox.appendChild(numberOfLikes);
-    likeBox.appendChild(heart);
+    likeBox.append(numberOfLikes, heart);
     likeBox.classList.add("likeBox");
 
-    textBox.appendChild(h2);
-    textBox.appendChild(likeBox);
+    textBox.append(h2, likeBox);
     textBox.classList.add("textBox");
-    article.appendChild(visualBox);
-    article.appendChild(textBox);
-
-    // open carousel when clicking on media
-    // visualBox.addEventListener("click", function() {
-    //   const carousel = document.getElementById("carouselWrapper");
-    //   const mediaSection = document.getElementById("main");
-    //   const headerSection = document.getElementById("headerSection");
-    //   const mediaCarousel = visual.cloneNode();
-    //   mediaCarousel.classList.add("mediaCarousel");
-    //   const mainPicture = document.getElementsByClassName("carouselMainImage");
-    //   carousel.style.display = "block";
-    //   mediaSection.style.display = "none";
-    //   headerSection.style.display = "none";
-    //   mainPicture[0].appendChild(mediaCarousel);
-
-    //   // const carouselImg = document.createElement("div");
-    //   // carouselImg.appendChild(mediaCarousel);
-    //   // carouselMainSection.appendChild(carouselImg);
-    //   // console.log(carouselImg);
-    // })
+    article.append(lightboxVisualBox, textBox);
     return article;
   }
 
