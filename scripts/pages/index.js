@@ -1,28 +1,22 @@
-    async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
+/* eslint-disable no-undef */
+async function getPhotographersInfo() {
+  let response = await fetch("data/photographers.json");
+  let datas = await response.json();
+  return datas.photographers;
+}
 
-        // fetch les datas
-        let response = await fetch("../../data/photographers.json")
-        let datas = await response.json()
+async function displayPhotographersGrid(photographers) {
+  const photographersSection = document.querySelector(".photographer_section");
+  photographers.forEach((photographer) => {
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
+  });
+}
 
-        // et bien retourner le tableau photographers seulement une fois
-        return datas.photographers;
-    }
+async function init() {
+  const photographers = await getPhotographersInfo();
+  await displayPhotographersGrid(photographers);
+}
 
-    async function displayData(photographers) { 
-        const photographersSection = document.querySelector(".photographer_section");     
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
-
-    async function init() {
-        // Récupère les datas des photographes
-        const photographers = await getPhotographers();
-        await displayData(photographers);
-    };
-    
-    init();
-    
+init();
