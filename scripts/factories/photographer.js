@@ -26,11 +26,12 @@ function photographerFactory(data) {
 
     linkAndArticle.setAttribute("href", url);
     img.setAttribute("src", picture);
-    img.setAttribute("alt", name);
+    img.setAttribute("alt", `photo de profil de ${name}`);
     h4.textContent = [price + "€/jour"];
 
     article.append(img, h1, h2, h3, h4);
     linkAndArticle.append(article);
+    linkAndArticle.setAttribute("tabindex", 0);
     return linkAndArticle;
   }
   return { getUserCardDOM, contactCard };
