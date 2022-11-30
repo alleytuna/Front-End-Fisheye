@@ -34,6 +34,7 @@ function mediaFactory(data) {
 
     heart.setAttribute("src", heartIcon);
     heart.setAttribute("class", "heart");
+    heart.setAttribute("alt", "coeur sur lequel cliquer pour déliker la photo");
     numberOfLikes.textContent = likeTotal;
     numberOfLikes.classList.add("numberLikesBlack");
 

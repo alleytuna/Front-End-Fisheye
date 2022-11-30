@@ -1,13 +1,9 @@
 /* eslint-disable no-unused-vars */
 
 function openLightbox(pos, array) {
+  const mainSection = document.getElementById("main");
   const lightboxSection = document.querySelector(".lightboxSection");
   const mediaSection = document.querySelector(".mediaSection");
-  const dropdownSection = document.querySelector(".dropdownSection");
-  const photographHeader = document.querySelector(".photographHeader");
-  const priceAndLikesSidebar = document.querySelector(
-    ".priceAndTotalLikesSidebar"
-  );
   const headerSection = document.getElementById("headerSection");
 
   const nextButton = document.querySelector(".nextButton");
@@ -21,10 +17,11 @@ function openLightbox(pos, array) {
 
   lightboxSection.style.display = "flex";
   mediaSection.style.display = "none";
-  dropdownSection.style.display = "none";
-  photographHeader.style.display = "none";
-  priceAndLikesSidebar.style.display = "none";
+  mainSection.style.display = "none";
   headerSection.style.display = "none";
+
+  lightboxSection.setAttribute('aria-hidden', 'false');
+  mainSection.setAttribute('aria-hidden', 'true');
 
   loadLightboxVisual(array[current]);
   updateLightBoxContent();
@@ -90,10 +87,8 @@ function openLightbox(pos, array) {
     }
     lightboxSection.style.display = "none";
     mediaSection.style.display = "grid";
-    dropdownSection.style.display = "flex";
-    photographHeader.style.display = "grid";
+    mainSection.style.display = "block";
     headerSection.style.display = "block";
-    priceAndLikesSidebar.style.display = "flex";
   }
 
   window.addEventListener("keydown", (e) => {

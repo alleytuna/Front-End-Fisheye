@@ -22,11 +22,13 @@ async function displayPhotographerInfo(photographer, media) {
 
   heart.setAttribute("src", heartIcon);
   heart.setAttribute("class", "blackHeart");
+  heart.setAttribute("alt", "coeur sur lequel cliquer pour liker la photo");
   totalLikes.classList.add("totalLikes");
   likesAndHeart.classList.add("likesAndHeart");
   price.classList.add("photographerPrice");
 
   img.setAttribute("src", picture);
+  img.setAttribute("alt", `photo de profil de ${photographer[0].name}`);
   const photographerModel = photographerFactory(photographer[0]);
   const contactCardDOM = photographerModel.contactCard();
   photographerHeaderInfo.appendChild(contactCardDOM);

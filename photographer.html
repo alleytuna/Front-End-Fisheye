@@ -27,7 +27,11 @@
     <main id="main">
       <header class="photographHeader">
         <div class="photographerHeaderInfo"></div>
-        <button class="contactButton" onclick="displayModal()">
+        <button
+          class="contactButton"
+          aria-label="Ouvrir le formulaire de prise de contact"
+          onclick="displayModal()"
+        >
           Contactez-moi
         </button>
         <div class="photographerHeaderPortrait"></div>
@@ -50,28 +54,34 @@
           </option>
         </select>
       </div>
-      <main class="mediaSection"></main>
-      <article class="lightboxSection" tabindex="0">
-        <img
-          src="assets/icons/leftArrow.svg"
-          alt="arrow to go to previous picture"
-          class="prevButton"
-        />
-        <img
-          src="assets/icons/rightArrow.svg"
-          alt="arrow to go to next picture"
-          class="nextButton"
-        />
-        <img
-          src="assets/icons/closeLightbox.svg"
-          alt="icon to close the carousel"
-          class="closeLightbox"
-        />
-        <article id="lightboxVisualBox"></article>
-      </article>
+      <div class="mediaSection" aria-hidden="false"></div>
+
       <div class="priceAndTotalLikesSidebar"></div>
     </main>
-    <div id="contact_modal">
+    <div class="lightboxSection" tabindex="0" aria-hidden="true">
+      <img
+        src="assets/icons/leftArrow.svg"
+        alt="arrow to go to previous picture"
+        class="prevButton"
+      />
+      <img
+        src="assets/icons/rightArrow.svg"
+        alt="arrow to go to next picture"
+        class="nextButton"
+      />
+      <img
+        src="assets/icons/closeLightbox.svg"
+        alt="icon to close the carousel"
+        class="closeLightbox"
+      />
+      <article id="lightboxVisualBox"></article>
+    </div>
+    <div
+      id="contact_modal"
+      role="dialog"
+      aria-label="modal de contact des photographes"
+      aria-hidden="true"
+    >
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
@@ -79,6 +89,7 @@
             src="assets/icons/close.svg"
             alt="cross to close the contact modal"
             onclick="closeModal()"
+            class="closeModalButton"
           />
         </header>
         <form>
