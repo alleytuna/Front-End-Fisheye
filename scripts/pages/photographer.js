@@ -32,6 +32,7 @@ async function displayMediaGrid(medias) {
     mediaCardDOM.setAttribute("tabindex", 0);
     mediaCardDOM.addEventListener("click", function (e) {
       e.preventDefault();
+      console.log(e)
       if (e.path[0].classList == "media") {
         openLightbox(i, medias);
       }
