@@ -30,8 +30,8 @@ function photographerFactory(data) {
     h4.textContent = [price + "€/jour"];
 
     article.append(img, h1, h2, h3, h4);
+    article.setAttribute("tabindex", 0);
     linkAndArticle.append(article);
-    linkAndArticle.setAttribute("tabindex", 0);
     return linkAndArticle;
   }
   return { getUserCardDOM, contactCard };
